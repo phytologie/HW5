@@ -3,7 +3,7 @@
 \name{standardize}
 \alias{standardize}
 \alias{standardize,sparse_numeric-method}
-\title{Standardize a sparse_numeric Vector}
+\title{Standardize sparse_numeric}
 \usage{
 standardize(x, ...)
 
@@ -11,6 +11,8 @@ standardize(x, ...)
 }
 \arguments{
 \item{x}{A sparse_numeric object.}
+
+\item{...}{Additional arguments (ignored).}
 }
 \value{
 A standardized sparse_numeric object.

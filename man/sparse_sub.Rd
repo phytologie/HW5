@@ -16,6 +16,12 @@ sparse_sub(x, y, ...)
 \item{x}{A sparse_numeric object.}
 
 \item{y}{A sparse_numeric object.}
+
+\item{...}{Additional arguments (ignored).}
+
+\item{e1}{First operand (for arithmetic operator methods).}
+
+\item{e2}{Second operand (for arithmetic operator methods).}
 }
 \value{
 A sparse_numeric object.

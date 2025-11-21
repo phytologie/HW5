@@ -232,3 +232,70 @@ test_that("plot produces no error when no overlap", {
   expect_no_error(plot(x,y))
 })
 
+test_that("initialize handles zero case", {
+  x <- new("sparse_numeric", value = numeric(), pos = integer(), length = 5L)
+  expect_s4_class(x, "sparse_numeric")
+  expect_equal(x@length, 5L)
+})
+
+test_that("show displays correct structure", {
+  x <- as(c(0, 2, 0, 5), "sparse_numeric")
+  expect_output(show(x), "sparse_numeric")
+  expect_output(show(x), "Positions:")
+})
+
+test_that("invalid pos values are detected", {
+  expect_error(new("sparse_numeric",
+                   value = c(1,2),
+                   pos = c(2L,2L),
+                   length = 4L))
+})
+
+test_that("standardize handles NA", {
+  x <- as(c(1, NA, 3), "sparse_numeric")
+  expect_error(standardize(x))
+})
+
+test_that("length is preserved after coercion to numeric and back", {
+  x <- as(c(0,1,0,2), "sparse_numeric")
+  dense <- as(x, "numeric")
+  s <- as(dense, "sparse_numeric")
+  expect_equal(length(s), length(x))
+})
+
+test_that("sparse_add with all zeros", {
+  x <- as(rep(0, 5), "sparse_numeric")
+  y <- as(rep(0, 5), "sparse_numeric")
+  expect_equal(sparse_add(x, y), as(rep(0, 5), "sparse_numeric"))
+})
+
+test_that("sparse_mult resulting in all zeros", {
+  x <- as(c(0, 0, 3), "sparse_numeric")
+  y <- as(c(0, 0, 0), "sparse_numeric")
+  expect_equal(sparse_mult(x, y), as(rep(0, 3), "sparse_numeric"))
+})
+
+test_that("sparse_sub resulting in negative values", {
+  x <- as(c(1,2,3), "sparse_numeric")
+  y <- as(c(4,1,5), "sparse_numeric")
+  expect_equal(sparse_sub(x,y), as(c(-3,1,-2), "sparse_numeric"))
+})
+
+test_that("show prints preview with more than 5 non-zero elements", {
+  x <- as(1:10, "sparse_numeric")  # 10 non-zero elements
+  expect_output(show(x), "Positions: 1, 2, 3, 4, 5, ...")
+  expect_output(show(x), "Values: 1, 2, 3, 4, 5, ...")
+})
+
+test_that("plot errors when lengths differ", {
+  x <- as(c(1, 2, 0), "sparse_numeric")
+  y <- as(c(1, 2), "sparse_numeric")
+  expect_error(plot(x, y), "Vectors must have same length")
+})
+
+test_that("plot handles no overlapping non-zero positions", {
+  x <- as(c(1, 0, 0), "sparse_numeric")
+  y <- as(c(0, 2, 0), "sparse_numeric")
+  expect_no_error(plot(x, y))  # should execute plot(0,0) + text
+})
+

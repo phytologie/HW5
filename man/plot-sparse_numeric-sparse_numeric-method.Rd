@@ -10,6 +10,8 @@
 \item{x}{First sparse_numeric.}
 
 \item{y}{Second sparse_numeric.}
+
+\item{...}{Additional plotting args passed to plot().}
 }
 \value{
 A scatter plot.

@@ -13,6 +13,8 @@ sparse_crossprod(x, y, ...)
 \item{x}{A sparse_numeric object.}
 
 \item{y}{A sparse_numeric object.}
+
+\item{...}{Additional arguments (ignored).}
 }
 \value{
 Numeric scalar.

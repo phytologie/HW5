@@ -8,6 +8,8 @@
 }
 \arguments{
 \item{x}{A sparse_numeric object.}
+
+\item{...}{Additional arguments (ignored).}
 }
 \value{
 Numeric mean.

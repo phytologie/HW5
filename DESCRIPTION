@@ -1,9 +1,11 @@
 Package: HW5
-Title: What the Package Does (One Line, Title Case)
+Title: Sparse Numeric Vector Representation and Operations
 Version: 0.0.0.9000
 Authors@R: 
     person("Agatha", "Angeles", , "aggie.angeles@gmail.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Description: Implements an S4 class 'sparse_numeric' that stores numeric vectors in sparse format, 
+    keeping only non-zero values and their positions. Provides methods for arithmetic operations, 
+    coercion, summarization, plotting, and standardization while preserving memory efficiency.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -12,3 +14,6 @@ Imports:
     methods,
     graphics,
     utils
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3

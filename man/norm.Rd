@@ -3,7 +3,7 @@
 \name{norm}
 \alias{norm}
 \alias{norm,sparse_numeric-method}
-\title{Euclidean Norm (L2) of sparse_numeric}
+\title{Norm for sparse_numeric}
 \usage{
 norm(x, ...)
 
@@ -11,6 +11,8 @@ norm(x, ...)
 }
 \arguments{
 \item{x}{A sparse_numeric object.}
+
+\item{...}{Additional arguments (ignored).}
 }
 \value{
 Numeric scalar.

@@ -1,1 +1,27 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
 # HW5
+
+<!-- badges: start -->
+
+[![R-CMD-check](https://github.com/phytologie/HW5/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/phytologie/HW5/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
+
+The goal of HW5 is to provide an S4-based R package for working with
+sparse numeric vectors. The package defines a custom sparse_numeric
+class and implements a suite of mathematical operations that behave
+consistently with base R vector methods. Sparse vectors efficiently
+store only non-zero values and their positions, making this package
+useful for applications where most elements of a numeric vector are
+zeros.
+
+## Installation
+
+You can install the development version of HW5 from
+[GitHub](https://github.com/) with:
+
+``` r
+# install.packages("pak")
+pak::pak("phytologie/HW5")
+```
